@@ -7,6 +7,7 @@ const path = require("path");
 require("dotenv").config();
 
 const users = require("./routes/api/userRouter");
+const products = require("./routes/api/productRouter");
 
 const app = express();
 
@@ -28,10 +29,13 @@ mongoose
 app.use(passport.initialize());
 
 require("./models/userModel");
+require("./models/orderModel");
+require("./models/productModel");
 // Passport config
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
+app.use("/api/products", products);
 
 const port = process.env.PORT || 5000;
 

@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      require: "Image is required",
+      required: "Image is required",
     },
     brand: {
       type: String,
