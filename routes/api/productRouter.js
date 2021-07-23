@@ -1,7 +1,7 @@
 const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
 const Product = require("../../models/productModel");
-// const data = require("../seeds/seed");
+
 const router = express.Router();
 
 router.get(
