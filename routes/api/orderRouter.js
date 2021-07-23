@@ -1,7 +1,7 @@
 const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
 const Order = require("../../models/orderModel");
-const { isAuth } = require("../utils/util");
+const { isAuth } = require("../../utils/util");
 
 const router = express.Router();
 
@@ -62,3 +62,5 @@ router.get(
     }
   })
 );
+
+module.exports = router;

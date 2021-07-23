@@ -25,7 +25,7 @@ const isAuth = (req, res, next) => {
     // console.log('token is:', token);
 
     // use JWT to decode the token n get the user info
-    jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
+    jwt.verify(token, process.env.SECRET, (err, decode) => {
       if (err) {
         // if err, send 401 not authorized message
         return res.status(401).send({ message: "Invalid token" });
