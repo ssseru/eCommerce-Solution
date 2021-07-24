@@ -8,20 +8,34 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/userModel");
 
+router.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
   // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body);
-  // Check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // console.log("hi");
+  // const { errors, isValid } = validateRegisterInput(req.body);
+  // console.log("hi");
+  // // Check validation
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
   User.findOne({ email: req.body.email }).then((user) => {
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
+      // console.log("new user");
+      // console.log(req.body);
+      // console.log("new user");
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,

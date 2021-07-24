@@ -11,13 +11,19 @@ import {
 
 export const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
-
+  const userData = {
+    name: name,
+    email: email,
+    password: password,
+  };
   try {
-    const { data } = await axios.post("/api/users/register", {
-      name,
-      email,
-      password,
-    });
+    console.log("1");
+    const { data } = await axios.post(
+      "http://localhost:5000/api/users/register",
+      userData
+    );
+    console.log("1");
+
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
 
@@ -37,7 +43,10 @@ export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
 
   try {
-    const { data } = await axios.post("/api/users/signin", { email, password });
+    const { data } = await axios.post("http://localhost:5000/api/users/login", {
+      email,
+      password,
+    });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
