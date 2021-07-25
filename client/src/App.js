@@ -6,20 +6,25 @@ import SignInComponent from "./components/SignInComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import { signout } from "./actions/userAction";
 import { use } from "passport";
+import jwt_decode from "jwt-decode";
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  console.log(userInfo);
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch(signout());
   };
+  if (userInfo) {
+    const user = jwt_decode(userInfo.token.substring(7));
+    console.log("User Token:", userInfo.token);
+    console.log("User Details:", user);
+  }
   return (
     <BrowserRouter>
       {userInfo ? (
         <div>
-          <p>User's Name: {userInfo.name}</p>
+          {/* <p>User's Name: {user.name}</p> */}
           <Link to="#signout" onClick={signoutHandler}>
             Sign Out
           </Link>
