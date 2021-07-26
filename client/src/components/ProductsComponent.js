@@ -11,7 +11,8 @@ function ProductsComponent() {
   };
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  const user = jwt_decode(userInfo.token.substring(7));
+  console.log("userInfo", userInfo);
+
   // console.log("User Token:", userInfo.token);
   // console.log("User Details:", user);
 
@@ -20,7 +21,7 @@ function ProductsComponent() {
       <Link to="/" onClick={signoutHandler}>
         Sign Out
       </Link>
-      Products Yeet!!!!{user.name}
+      Products Yeet!!!!{userInfo.name}
     </div>
   );
 }

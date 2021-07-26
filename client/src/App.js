@@ -9,7 +9,7 @@ import ProductsComponent from "./components/ProductsComponent";
 function App(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  console.log(userInfo);
+  console.log("userInfo", userInfo);
   // const redirect = props.location.search
   //   ? props.location.search.split("=")[1]
   //   : "/products";
