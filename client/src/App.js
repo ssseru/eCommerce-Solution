@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import HomeComponent from "./components/HomeComponent";
 import SignInComponent from "./components/SignInComponent";
 import RegisterComponent from "./components/RegisterComponent";
+import ProductsComponent from "./components/ProductsComponent";
 import { signout } from "./actions/userAction";
 import { use } from "passport";
 import jwt_decode from "jwt-decode";
@@ -35,6 +36,7 @@ function App() {
       <Route exact path="/" component={HomeComponent} />
       <Route path="/signin" component={SignInComponent} />
       <Route path="/register" component={RegisterComponent} />
+      <Route path="/products" component={ProductsComponent} />
     </BrowserRouter>
   );
 }
