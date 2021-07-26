@@ -17,15 +17,13 @@ export const register = (name, email, password) => async (dispatch) => {
     password: password,
   };
   try {
-    console.log("1");
     const { data } = await axios.post(
       "http://localhost:5000/api/users/register",
       userData
     );
-    console.log("1");
 
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
-    dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
+    // dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
 
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {

@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import { useSelector } from "react-redux";
 import HomeComponent from "./components/HomeComponent";
 import SignInComponent from "./components/SignInComponent";
@@ -9,7 +14,16 @@ import ProductsComponent from "./components/ProductsComponent";
 function App(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+  const [tf, setTf] = useState(false);
   console.log("userInfo", userInfo);
+  // if (tf) {
+  //   return <Redirect to="/products" />;
+  // }
+  // if (userInfo != null) {
+  //   console.log(tf);
+  //   setTf(true);
+  // }
+
   // const redirect = props.location.search
   //   ? props.location.search.split("=")[1]
   //   : "/products";
@@ -25,12 +39,14 @@ function App(props) {
   // };
 
   return (
-    <BrowserRouter>
-      <Route exact path="/" component={HomeComponent} />
-      <Route path="/signin" component={SignInComponent} />
-      <Route path="/register" component={RegisterComponent} />
-      <Route path="/products" component={ProductsComponent} />
-    </BrowserRouter>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomeComponent} />
+        <Route path="/signin" component={SignInComponent} />
+        <Route path="/register" component={RegisterComponent} />
+        <Route path="/products" component={ProductsComponent} />
+      </Switch>
+    </Router>
   );
 }
 
