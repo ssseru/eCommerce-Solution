@@ -14,7 +14,7 @@ function SignInComponent(props) {
   //first check if there is redirect query param on the url
   const redirect = props.location.search
     ? props.location.search.split("=")[1]
-    : "/";
+    : "/products";
 
   //get userInfo from redux store
   const userSignin = useSelector((state) => state.userSignin);
@@ -81,10 +81,7 @@ function SignInComponent(props) {
         <div>
           <label />
           <div>
-            New customer?{" "}
-            <Link to={`/register?redirect=${redirect}`}>
-              Create your account
-            </Link>
+            New customer? <Link to={`/register`}>Create your account</Link>
           </div>
         </div>
       </form>
