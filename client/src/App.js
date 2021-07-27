@@ -10,6 +10,7 @@ import HomeComponent from "./components/HomeComponent";
 import SignInComponent from "./components/SignInComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import ProductsComponent from "./components/ProductsComponent";
+import NavbarComponent from "./components/NavbarComponent";
 
 function App(props) {
   const userSignin = useSelector((state) => state.userSignin);
@@ -40,6 +41,7 @@ function App(props) {
 
   return (
     <Router>
+      <NavbarComponent />
       <Switch>
         <Route exact path="/" component={HomeComponent} />
         <Route path="/signin" component={SignInComponent} />
