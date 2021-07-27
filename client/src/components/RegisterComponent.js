@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../actions/userAction";
+import {
+  Container,
+  Input,
+  Label,
+  Form,
+  Col,
+  Button,
+  FormGroup,
+} from "reactstrap";
 // import LoadingBox from "../components/LoadingBox";
 // import MessageBox from "../components/MessageBox";
 
@@ -44,72 +53,78 @@ function RegisterComponent(props) {
   }, [userInfo, redirect, props.history]);
 
   return (
-    <div>
-      <form className="form" onSubmit={submitHandler}>
-        <div>
-          <h1>Create An Account</h1>
-          {/* {loading && <LoadingBox />}
-          {error && <MessageBox variant="danger">{error}</MessageBox>} */}
-        </div>
-        <div>
-          <label htmlFor="name">Name: </label>
-          <input
-            type="name"
-            id="name"
-            placeholder="Enter name"
-            value={name}
-            required
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email: </label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter email"
-            value={email}
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter password"
-            value={password}
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password: </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm password"
-            value={confirmPassword}
-            required
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <label />
-          <button className="primary" type="submit">
-            Register
-          </button>
-        </div>
-        <div>
-          <label />
+    <>
+      <Container>
+        <Form onSubmit={submitHandler}>
           <div>
-            Already have an account?{" "}
-            <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
+            <h4>Create An Account</h4>
+            {/* {loading && <LoadingBox />}
+          {error && <MessageBox variant="danger">{error}</MessageBox>} */}
           </div>
-        </div>
-      </form>
-    </div>
+          <FormGroup row>
+            <Label for="name" md={2}>
+              Name:{" "}
+            </Label>
+            <Col md={10}>
+              <Input
+                type="text"
+                id="name"
+                placeholder="Enter name senpai"
+                value={name}
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="email" md={2}>
+              Email:{" "}
+            </Label>
+            <Col md={10}>
+              <Input
+                type="email"
+                id="email"
+                placeholder="Enter email senpai"
+                value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="password" md={2}>
+              Password:{" "}
+            </Label>
+            <Col md={10}>
+              <Input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                value={password}
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="confirmPassword" md={2}>
+              Confirm Password:{" "}
+            </Label>
+            <Col md={10}>
+              <Input
+                type="password"
+                id="confirmPassword"
+                placeholder="Enter password again"
+                value={confirmPassword}
+                required
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </Col>
+          </FormGroup>
+          <Button type="submit">Sign In</Button>
+        </Form>
+      </Container>
+    </>
   );
 }
 
