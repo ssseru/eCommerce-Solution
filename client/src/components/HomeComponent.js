@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Container } from "reactstrap";
 function HomeComponent(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
@@ -14,7 +15,11 @@ function HomeComponent(props) {
     setTf(true);
   }
   return (
-    <div style={{ height: "75vh" }} className="container valign-wrapper">
+    <Container style={{ height: "75vh" }} className="container center">
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="row">
         <div className="col s12 center-align">
           <h4>
@@ -56,7 +61,7 @@ function HomeComponent(props) {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
 

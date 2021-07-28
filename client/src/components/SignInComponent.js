@@ -64,15 +64,21 @@ function SignInComponent(props) {
             />
           </Col>
         </FormGroup>
-        <Label for="password">Password: </Label>
-        <Input
-          type="password"
-          id="password"
-          placeholder="Enter password"
-          value={password}
-          required
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <FormGroup row>
+          <Label for="password" md={2}>
+            Password:{" "}
+          </Label>
+          <Col md={10}>
+            <Input
+              type="password"
+              id="password"
+              placeholder="Enter password"
+              value={password}
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Col>
+        </FormGroup>
         <br />
         <br />
         <Button type="submit">Sign In</Button>

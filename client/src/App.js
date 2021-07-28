@@ -11,6 +11,7 @@ import SignInComponent from "./components/SignInComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import ProductsComponent from "./components/ProductsComponent";
 import NavbarComponent from "./components/NavbarComponent";
+import "./App.css";
 
 function App(props) {
   const userSignin = useSelector((state) => state.userSignin);
