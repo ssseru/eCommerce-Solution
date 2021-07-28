@@ -81,7 +81,9 @@ function SignInComponent(props) {
         </FormGroup>
         <br />
         <br />
-        <Button type="submit">Sign In</Button>
+        <Button type="submit" color="success">
+          Sign In
+        </Button>
         <br />
       </Form>
       <div>

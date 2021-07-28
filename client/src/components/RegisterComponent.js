@@ -121,8 +121,13 @@ function RegisterComponent(props) {
               />
             </Col>
           </FormGroup>
-          <Button type="submit">Sign In</Button>
+          <Button type="submit" color="success">
+            Register
+          </Button>
         </Form>
+        <div>
+          Already a customer? <Link to={`/signin`}>SignIN</Link>
+        </div>
       </Container>
     </>
   );
