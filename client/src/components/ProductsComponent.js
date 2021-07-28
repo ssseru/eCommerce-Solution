@@ -3,26 +3,31 @@ import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../actions/userAction";
 import { Link } from "react-router-dom";
+import { listProducts } from "../actions/productAction";
+import { Container } from "reactstrap";
 
 function ProductsComponent(props) {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+
+  const productList = useSelector((state) => state.productList);
+  console.log(productList);
+
+  const user = jwt_decode(userInfo.token.substring(7));
+
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch(signout());
   };
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  console.log("userInfo", userInfo);
-  const user = jwt_decode(userInfo.token.substring(7));
-  // console.log("User Token:", userInfo.token);
-  // console.log("User Details:", user);
+
+  useEffect(() => {
+    dispatch(listProducts());
+  }, []);
 
   return (
-    <div>
-      <Link to="/" onClick={signoutHandler}>
-        Sign Out
-      </Link>
-      Products Yeet!!!!{user.name}
-    </div>
+    <Container>
+      <div>Welcome {user.name},</div>
+    </Container>
   );
 }
 

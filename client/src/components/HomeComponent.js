@@ -21,6 +21,12 @@ function HomeComponent(props) {
             <b>eCommerce</b> App made for shopping the TRENDS{" "}
             <span style={{ fontFamily: "monospace" }}>of the</span> World
           </h4>
+          <p
+            className="flow-text grey-text text-darken-1"
+            style={{ fontSize: "20px" }}
+          >
+            To view the Catalog, SignIn or Create an account
+          </p>
           <br />
           <div className="col s6">
             <Link
@@ -45,7 +51,7 @@ function HomeComponent(props) {
               }}
               className="btn btn-large btn-flat waves-effect green black-text waves-light hoverable accent-3"
             >
-              Sign In?
+              Sign In
             </Link>
           </div>
         </div>

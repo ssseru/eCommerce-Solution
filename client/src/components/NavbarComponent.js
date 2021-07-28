@@ -20,11 +20,15 @@ function NavbarComponent() {
           <ul className="right">
             {userInfo == null ? (
               <li>
-                <Link to="/signin">Sign in?</Link>
+                <Link to="/signin">Sign in</Link>
               </li>
             ) : (
               <li>
-                <Link to="/" onClick={signoutHandler}>
+                <Link
+                  to="/"
+                  onClick={signoutHandler}
+                  style={{ color: "black" }}
+                >
                   Sign Out
                 </Link>
               </li>

@@ -16,7 +16,7 @@ function App(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const [tf, setTf] = useState(false);
-  console.log("userInfo", userInfo);
+  // console.log("userInfo", userInfo);
   // if (tf) {
   //   return <Redirect to="/products" />;
   // }
