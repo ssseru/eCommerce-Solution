@@ -57,9 +57,9 @@ function ProductsComponent(props) {
           <CardBody>
             <CardTitle tag="h5">{product.name}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">
-              {product.name}
+              {product.brand}
             </CardSubtitle>
-            <CardText>{product.description}</CardText>
+            <CardText>{product.category}</CardText>
           </CardBody>
         </Card>
       </Container>

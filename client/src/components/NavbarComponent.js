@@ -41,7 +41,7 @@ function NavbarComponent() {
               <Link to="/">My Cart</Link>
             </li>
             <li>
-              <Link to="/cart">
+              <Link to="/">
                 <i className="material-icons">shopping_cart</i>
               </Link>
             </li>

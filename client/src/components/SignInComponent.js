@@ -46,50 +46,54 @@ function SignInComponent(props) {
   }, [userInfo, redirect, props.history]);
 
   return (
-    <Container>
-      <h1>Sign In</h1>
-      <Form onSubmit={submitHandler}>
-        <FormGroup row>
-          <Label for="email" md={2}>
-            Email:{" "}
-          </Label>
-          <Col md={10}>
-            <Input
-              type="email"
-              id="email"
-              placeholder="Enter email senpai"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="password" md={2}>
-            Password:{" "}
-          </Label>
-          <Col md={10}>
-            <Input
-              type="password"
-              id="password"
-              placeholder="Enter password"
-              value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Col>
-        </FormGroup>
-        <br />
-        <br />
-        <Button type="submit" color="success">
-          Sign In
-        </Button>
-        <br />
-      </Form>
-      <div>
-        New customer? <Link to={`/register`}>Create your account</Link>
-      </div>
-    </Container>
+    <>
+      <br />
+      <Container>
+        <h3>Sign In</h3>
+        <hr />
+        <Form onSubmit={submitHandler}>
+          <FormGroup row>
+            <Label for="email" md={2}>
+              Email:{" "}
+            </Label>
+            <Col md={10}>
+              <Input
+                type="email"
+                id="email"
+                placeholder="Enter email"
+                value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="password" md={2}>
+              Password:{" "}
+            </Label>
+            <Col md={10}>
+              <Input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                value={password}
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Col>
+          </FormGroup>
+          <br />
+          <br />
+          <Button type="submit" color="success">
+            Sign In
+          </Button>
+          <br />
+        </Form>
+        <div>
+          New customer? <Link to={`/register`}>Create your account</Link>
+        </div>
+      </Container>
+    </>
   );
 }
 

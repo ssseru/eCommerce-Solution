@@ -54,10 +54,12 @@ function RegisterComponent(props) {
 
   return (
     <>
+      <br />
       <Container>
         <Form onSubmit={submitHandler}>
           <div>
-            <h4>Create An Account</h4>
+            <h3>Create An Account</h3>
+            <hr />
             {/* {loading && <LoadingBox />}
           {error && <MessageBox variant="danger">{error}</MessageBox>} */}
           </div>
@@ -69,7 +71,7 @@ function RegisterComponent(props) {
               <Input
                 type="text"
                 id="name"
-                placeholder="Enter name senpai"
+                placeholder="Enter name"
                 value={name}
                 required
                 onChange={(e) => setName(e.target.value)}
@@ -84,7 +86,7 @@ function RegisterComponent(props) {
               <Input
                 type="email"
                 id="email"
-                placeholder="Enter email senpai"
+                placeholder="Enter email"
                 value={email}
                 required
                 onChange={(e) => setEmail(e.target.value)}
