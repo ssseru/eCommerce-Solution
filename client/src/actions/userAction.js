@@ -17,10 +17,7 @@ export const register = (name, email, password) => async (dispatch) => {
     password: password,
   };
   try {
-    const { data } = await axios.post(
-      "http://localhost:5000/api/users/register",
-      userData
-    );
+    const { data } = await axios.post("/api/users/register", userData);
 
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     // dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
@@ -41,7 +38,7 @@ export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
 
   try {
-    const { data } = await axios.post("http://localhost:5000/api/users/login", {
+    const { data } = await axios.post("/api/users/login", {
       email,
       password,
     });
