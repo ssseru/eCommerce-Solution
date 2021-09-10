@@ -24,7 +24,7 @@ function ProductsComponent(props) {
   if (productList.loading == false) {
     listOfProducts = [...productList.products];
   }
-  console.log(listOfProducts);
+  // console.log(listOfProducts);
   // console.log("productlist:", productList);
   // console.log("products:", products);
 
@@ -40,26 +40,32 @@ function ProductsComponent(props) {
   };
 
   useEffect(() => {
-    console.log("dispatch");
+    // console.log("dispatch");
     dispatch(listProducts());
   }, []);
   // console.log("products::", products.length);
+
   const lp = listOfProducts.map((product) => (
     <Col md={4}>
       <Container>
         <Card>
-          <CardImg
-            style={imgStyle}
-            bottom
-            src={product.image}
-            alt={product.name}
-          />
+          <Link to={`/products/${product._id}`}>
+            {console.log(`/products/${product._id}`)}
+            <CardImg
+              style={imgStyle}
+              bottom
+              src={product.image}
+              alt={product.name}
+            />
+          </Link>
           <CardBody>
-            <CardTitle tag="h5">{product.name}</CardTitle>
-            <CardSubtitle tag="h6" className="mb-2 text-muted">
-              {product.brand}
-            </CardSubtitle>
-            <CardText>{product.category}</CardText>
+            <Link to={`/products/${product._id}`}>
+              <CardTitle tag="h5">{product.name}</CardTitle>
+              <CardSubtitle tag="h6" className="mb-2 text-muted">
+                {product.brand}
+              </CardSubtitle>
+              <CardText>{product.category}</CardText>
+            </Link>
           </CardBody>
         </Card>
       </Container>

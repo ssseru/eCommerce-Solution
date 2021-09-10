@@ -31,14 +31,17 @@ router.post(
   })
 );
 
-router.get("/:id", (req, res) => {
-  const product = Product.findById(req.params.id);
-  //check condition
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "Product Not Found" });
-  }
-});
+router.get(
+  "/:id",
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    //check condition
+    if (product) {
+      res.send(product);
+    } else {
+      res.status(404).send({ message: "Product Not Found" });
+    }
+  })
+);
 
 module.exports = router;
