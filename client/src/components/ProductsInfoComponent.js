@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Input, Button } from "reactstrap";
+import { Container, Row, Col, Input, Button, Spinner } from "reactstrap";
 import { detailsProduct } from "../actions/productAction";
 
 function ProductsInfo(props) {
@@ -83,7 +83,9 @@ function ProductsInfo(props) {
           </Row>
         </Container>
       ) : (
-        <Container>Loading Info...</Container>
+        <Container>
+          <Spinner size="lg" color="primary" />
+        </Container>
       )}
     </>
   );

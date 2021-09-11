@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signout } from "../actions/userAction";
+import Badge from "@material-ui/core/Badge";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+
 function NavbarComponent() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
@@ -9,6 +12,9 @@ function NavbarComponent() {
   const signoutHandler = () => {
     dispatch(signout());
   };
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+  const totalItems = cartItems.reduce((a, c) => a + c.qty, 0);
   return (
     <>
       <nav className="nav-wrapper" style={{ backgroundColor: "cyan" }}>
@@ -42,9 +48,16 @@ function NavbarComponent() {
             </li>
             <li>
               <Link to="/cart">
-                <i className="material-icons">shopping_cart</i>
+                {totalItems > 0 ? (
+                  <Badge badgeContent={totalItems} color="primary">
+                    <ShoppingCartIcon />
+                  </Badge>
+                ) : (
+                  <ShoppingCartIcon />
+                )}
               </Link>
             </li>
+            <li></li>
           </ul>
         </div>
       </nav>
