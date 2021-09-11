@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Container, Row, Media, Col } from "reactstrap";
+import { Container, Row, Col, Input } from "reactstrap";
 import { detailsProduct } from "../actions/productAction";
 
 function ProductsInfo(props) {
@@ -43,15 +43,39 @@ function ProductsInfo(props) {
               <h6>{product.name}</h6>
               <p>{product.description}</p>
               <hr />
-              <p>In stock: {product.countInStock}</p>
+              <p>
+                In stock:{" "}
+                {product.countInStock > 0 ? (
+                  product.countInStock
+                ) : (
+                  <p>Out of STOCK!!!</p>
+                )}
+              </p>
               <p>
                 Price: Rs.<strong>{product.price}</strong>
               </p>
+
+              <div>Qty</div>
+              <div>
+                <Input
+                  type="select"
+                  name="qty"
+                  id="qty"
+                  value={qty}
+                  onChange={(e) => setQty(e.target.value)}
+                >
+                  {[...Array(product.countInStock)].map((x, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </Input>
+              </div>
             </Col>
           </Row>
         </Container>
       ) : (
-        <p>Loading Info...</p>
+        <Container>Loading Info...</Container>
       )}
     </>
   );
