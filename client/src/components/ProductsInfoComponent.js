@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Input } from "reactstrap";
+import { Container, Row, Col, Input, Button } from "reactstrap";
 import { detailsProduct } from "../actions/productAction";
 
 function ProductsInfo(props) {
@@ -20,6 +20,10 @@ function ProductsInfo(props) {
   useEffect(() => {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId]);
+
+  const addToCartHandler = () => {
+    props.history.push(`/cart/${productId}?qty=${qty}`);
+  };
 
   return (
     <>
@@ -70,6 +74,10 @@ function ProductsInfo(props) {
                     </option>
                   ))}
                 </Input>
+                <br />
+                <Button color="primary" onClick={addToCartHandler}>
+                  Add to Cart
+                </Button>
               </div>
             </Col>
           </Row>

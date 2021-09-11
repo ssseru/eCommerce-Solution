@@ -38,10 +38,10 @@ function NavbarComponent() {
               <Link to="/">Catalog</Link>
             </li>
             <li>
-              <Link to="/">My Cart</Link>
+              <Link to="/cart">My Cart</Link>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/cart">
                 <i className="material-icons">shopping_cart</i>
               </Link>
             </li>

@@ -9,6 +9,7 @@ import {
 import { useSelector } from "react-redux";
 import HomeComponent from "./components/HomeComponent";
 import SignInComponent from "./components/SignInComponent";
+import CartComponent from "./components/CartComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import ProductsComponent from "./components/ProductsComponent";
 import ProductsInfoComponent from "./components/ProductsInfoComponent";
@@ -46,6 +47,7 @@ function App(props) {
     <Router>
       <NavbarComponent />
       <Switch>
+        <Route path="/cart/:id?" component={CartComponent} />
         <Route exact path="/" component={withRouter(HomeComponent)} />
         <Route path="/signin" component={withRouter(SignInComponent)} />
         <Route path="/register" component={withRouter(RegisterComponent)} />
